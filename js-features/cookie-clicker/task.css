@@ -1,0 +1,18 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  text-align: center;
+}
+
+.clicker__status {
+  margin-bottom: 10px;
+}
+
+.clicker__cookie {
+  cursor: pointer;
+}
