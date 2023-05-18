@@ -17,3 +17,12 @@ function toggleCookieSize() {
     cookieElement.style.width = '200px';
   }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  let cookieElement = document.getElementById('cookie');
+
+  cookieElement.addEventListener('click', function () {
+    incrementCounter();
+    toggleCookieSize();
+  });
+});
