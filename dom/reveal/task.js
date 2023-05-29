@@ -1,5 +1,5 @@
 function isElementInViewport(element) {
-  var rect = element.getBoundingClientRect();
+  let rect = element.getBoundingClientRect();
   return (
     rect.top >= 0 &&
     rect.left >= 0 &&
@@ -9,10 +9,10 @@ function isElementInViewport(element) {
 }
 
 function handleScroll() {
-  var revealElements = document.getElementsByClassName('reveal');
+  let revealElements = document.getElementsByClassName('reveal');
 
-  for (var i = 0; i < revealElements.length; i++) {
-    var element = revealElements[i];
+  for (let i = 0; i < revealElements.length; i++) {
+    let element = revealElements[i];
 
     if (isElementInViewport(element)) {
       element.classList.add('reveal_active');
