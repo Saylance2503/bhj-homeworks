@@ -1,25 +1,31 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var tooltips = document.querySelectorAll('.has-tooltip');
+  let tooltips = document.querySelectorAll('.has-tooltip');
 
   tooltips.forEach(function (tooltip) {
     tooltip.addEventListener('click', function (event) {
       event.preventDefault();
       event.stopPropagation();
 
-      var tooltipText = this.getAttribute('title');
-      var tooltipElement = document.querySelector('.tooltip');
+      let tooltipText = this.getAttribute('title');
+      let tooltipElement = document.querySelector('.tooltip');
 
       tooltipElement.textContent = tooltipText;
+
+      let linkRect = this.getBoundingClientRect();
+      tooltipElement.style.left = linkRect.left + 'px';
+      tooltipElement.style.top = linkRect.bottom + 'px';
+
       tooltipElement.classList.add('tooltip_active');
 
-      document.addEventListener('click', hideTooltip);
+      this.addEventListener('click', hideTooltip, { once: true });
     });
   });
 
-  function hideTooltip() {
-    var tooltipElement = document.querySelector('.tooltip');
-    tooltipElement.classList.remove('tooltip_active');
+  function hideTooltip(event) {
+    event.preventDefault();
+    event.stopPropagation();
 
-    document.removeEventListener('click', hideTooltip);
+    let tooltipElement = document.querySelector('.tooltip');
+    tooltipElement.classList.remove('tooltip_active');
   }
 });
