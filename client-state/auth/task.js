@@ -2,6 +2,7 @@ const signinForm = document.getElementById('signin__form');
 const signinBtn = document.getElementById('signin__btn');
 const welcomeBlock = document.getElementById('welcome');
 const userIdSpan = document.getElementById('user_id');
+const signIn = document.getElementById('signin');
 
 signinForm.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -44,6 +45,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   if (userId) {
     userIdSpan.textContent = userId;
+    signIn.classList.remove('signin_active');
     welcomeBlock.classList.add('welcome_active');
   }
 });
