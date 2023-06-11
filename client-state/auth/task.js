@@ -28,7 +28,7 @@ signinForm.addEventListener('submit', async (e) => {
         localStorage.setItem('user_id', userId);
 
         userIdSpan.textContent = userId;
-        welcomeBlock.classList.add('welcome_active');
+        welcome();
       } else {
         alert('Неверный логин/пароль');
       }
@@ -45,7 +45,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
   if (userId) {
     userIdSpan.textContent = userId;
-    signIn.classList.remove('signin_active');
-    welcomeBlock.classList.add('welcome_active');
+    welcome();
   }
 });
+
+function welcome() {
+  welcomeBlock.classList.add('welcome_active');
+  signIn.classList.remove('signin_active');
+}
